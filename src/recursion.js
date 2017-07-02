@@ -18,6 +18,15 @@ var factorial = function(n) {
 // 2. Compute the sum of an array of integers.
 // sum([1,2,3,4,5,6]); // 21
 var sum = function(array) {
+  var copy = array.slice();
+  if (copy.length === 0) {
+    return 0;
+  } else if (copy.length === 1) {
+    return copy.pop();
+  }
+  copy[0] = copy[0] + copy[1];
+  copy.splice(1, 1);
+  return sum(copy.slice());
 };
 
 // 3. Sum all numbers in an array containing nested arrays.
